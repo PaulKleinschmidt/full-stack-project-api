@@ -15,7 +15,7 @@ class SongsController < OpenReadController
 
   # POST /songs
   def create
-    @song = current_user.song.build(song_params)
+    @song = current_user.songs.build(song_params)
 
     if @song.save
       render json: @song, status: :created, location: @song
@@ -41,11 +41,11 @@ class SongsController < OpenReadController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_song
-      @song = curren_user.song.find(params[:id])
+      @song = current_user.songs.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def song_params
-      params.require(:song).permit(:title, :artist, :key, :feel, :date, :tempo)
+      params.require(:song).permit(:title, :artist)
     end
 end
