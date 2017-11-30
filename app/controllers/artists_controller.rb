@@ -15,7 +15,7 @@ class ArtistsController < OpenReadController
 
   # POST /artists
   def create
-    @artist = current_user.artists.build(artist_params)
+    @artist = Artist.new(artist_params)
 
     if @artist.save
       render json: @artist, status: :created, location: @artist
@@ -41,7 +41,7 @@ class ArtistsController < OpenReadController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_artist
-      @artist = current_user.artists.find(params[:id])
+      @artist = Artist.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
