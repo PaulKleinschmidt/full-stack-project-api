@@ -3,7 +3,7 @@ class FavoritesController < OpenReadController
 
   # GET /favorites
   def index
-    @favorites = Favorite.all
+    @favorites = current_user.favorites.all
 
     render json: @favorites
   end
