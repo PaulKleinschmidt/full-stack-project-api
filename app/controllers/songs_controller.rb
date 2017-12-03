@@ -3,9 +3,15 @@ class SongsController < OpenReadController
 
   # GET /songs
   def index
-    @songs = Song.all
+    # @songs = Song.all
 
+    if song_params[:title] == 'Show All Songs'
+      @songs = Song.all
+    elsif song_params[:title]
+      @songs = Song.search(song_params[:title])
+    end
     render json: @songs
+
   end
 
   # GET /songs/1
