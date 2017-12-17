@@ -1,6 +1,6 @@
 
 
-## Paul's Song App Frontend
+## Paul's Song App Backend
 
 A single page application made by me. Pauls Song App is an app for accessing a songs database. It can be used to favorite songs and to keep track of which songs you like most! This project was made for General Assembly WDI 21, for full stack application building practice.
 
